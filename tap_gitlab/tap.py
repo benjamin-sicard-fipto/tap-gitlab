@@ -93,7 +93,7 @@ class TapGitLab(Tap):
                 "If not set to 'true', the 'merge_request_commits' stream will be "
                 "ignored."
             ),
-            default=False,
+            default=True, # Note: testing
         ),
         th.Property(
             "fetch_pipelines_extended",

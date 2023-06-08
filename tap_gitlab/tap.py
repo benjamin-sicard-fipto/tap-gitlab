@@ -17,7 +17,7 @@ from tap_gitlab.client import (
 )
 
 OPTIN_STREAM_NAMES = [
-    "merge_request_commits",
+   # "merge_request_commits",
     "pipelines_extended",
     "group_variables",
     "project_variables",

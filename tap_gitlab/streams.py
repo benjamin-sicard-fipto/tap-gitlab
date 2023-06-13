@@ -522,8 +522,8 @@ class CommitsStream(ProjectBasedStream):
     replication_key = "created_at"
     is_sorted = False
     parent_stream_type = ProjectsStream
-    extra_url_params = {"stats": "true"} # Note BSI: adding all commits from all branches
-   # extra_url_params = {"stats": "true", "all": "true"} # Note BSI: adding all commits from all branches
+    extra_url_params = {"with_stats: true"}
+   # extra_url_params = {"with_stats": "true", "all": "true"} # Note BSI: adding all commits from all branches
     schema_filepath = None  # to allow the use of schema below
 
     schema = th.PropertiesList(  # type: ignore

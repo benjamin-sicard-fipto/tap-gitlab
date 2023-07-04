@@ -316,7 +316,23 @@ class IssuesStream(ProjectBasedStream):
         th.Property("total_time_spent", th.IntegerType),
         th.Property("human_time_estimate", th.StringType),
         th.Property("human_total_time_spent", th.StringType),
-        th.Property("iteration_id", th.StringType) # test
+        th.Property(
+            "iteration",
+            th.ObjectType(
+                th.Property("id", th.IntegerType),
+                th.Property("iid", th.IntegerType),
+                th.Property("sequence", th.IntegerType),
+                th.Property("group_id", th.IntegerType),
+                th.Property("title", th.StringType),
+                th.Property("description", th.StringType),
+                th.Property("state", th.IntegerType),
+                th.Property("created_at", th.DateTimeType),
+                th.Property("updated_at", th.DateTimeType),
+                th.Property("start_date", th.StringType),
+                th.Property("due_date", th.StringType),
+                th.Property("web_url", th.StringType),
+            ),
+        ),
     ).to_dict()
 
 

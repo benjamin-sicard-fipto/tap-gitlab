@@ -287,8 +287,32 @@ class IssuesStream(ProjectBasedStream):
         th.Property("id", th.IntegerType),
         th.Property("iid", th.IntegerType),
         th.Property("project_id", th.IntegerType),
-        th.Property("milestone_id", th.IntegerType),
-        th.Property("epic_id", th.IntegerType),
+        # th.Property("milestone_id", th.IntegerType),
+        th.Property(
+            "milestone",
+            th.ObjectType(
+                th.Property("project_id", th.IntegerType),
+                th.Property("id", th.IntegerType),
+                th.Property("iid", th.IntegerType),
+                th.Property("title", th.StringType),
+                th.Property("description", th.StringType),
+                th.Property("state", th.IntegerType),
+                th.Property("created_at", th.DateTimeType),
+                th.Property("updated_at", th.DateTimeType),
+                th.Property("due_date", th.StringType),
+            ),
+        ),
+        # th.Property("epic_id", th.IntegerType),
+        th.Property(
+            "epic",
+            th.ObjectType(
+                th.Property("id", th.IntegerType),
+                th.Property("iid", th.IntegerType),
+                th.Property("title", th.StringType),
+                th.Property("url", th.StringType),
+                th.Property("group_id", th.IntegerType),
+            ),
+        ),
         th.Property("author", user_object),
         th.Property("assignees", th.ArrayType(user_object)),
         # XXX: breaks backwards compatibility
@@ -312,10 +336,15 @@ class IssuesStream(ProjectBasedStream):
         th.Property("discussion_locked", th.BooleanType),
         th.Property("has_tasks", th.BooleanType),
         th.Property("task_status", th.StringType),
-        th.Property("time_estimate", th.IntegerType),
-        th.Property("total_time_spent", th.IntegerType),
-        th.Property("human_time_estimate", th.StringType),
-        th.Property("human_total_time_spent", th.StringType),
+        th.Property(
+            "time_stats",
+            th.ObjectType(
+                th.Property("time_estimate", th.IntegerType),
+                th.Property("total_time_spent", th.IntegerType),
+                th.Property("human_time_estimate", th.StringType),
+                th.Property("human_total_time_spent", th.StringType),
+            ),
+        ),
         th.Property(
             "iteration",
             th.ObjectType(

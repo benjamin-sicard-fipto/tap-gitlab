@@ -316,6 +316,7 @@ class IssuesStream(ProjectBasedStream):
         th.Property("total_time_spent", th.IntegerType),
         th.Property("human_time_estimate", th.StringType),
         th.Property("human_total_time_spent", th.StringType),
+        th.Property("iteration_id", th.StringType) # test
     ).to_dict()
 
 

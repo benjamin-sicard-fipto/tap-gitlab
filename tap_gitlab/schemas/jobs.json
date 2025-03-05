@@ -63,11 +63,35 @@
                 }
             ]
         },
+        "queued_duration": {
+            "anyOf": [
+                {
+                    "type": "number",
+                    "format": "float"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
         "coverage": {
             "anyOf": [
                 {
                     "type": "number",
                     "format": "float"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "tag_list": {
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 {
                     "type": "null"

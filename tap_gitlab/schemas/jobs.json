@@ -53,26 +53,10 @@
             ]
         },
         "duration": {
-            "anyOf": [
-                {
-                    "type": "number",
-                    "format": "float"
-                },
-                {
-                    "type": "null"
-                }
-            ]
+            "type": ["null", "number"]
         },
         "queued_duration": {
-            "anyOf": [
-                {
-                    "type": "number",
-                    "format": "float"
-                },
-                {
-                    "type": "null"
-                }
-            ]
+            "type": ["null", "number"]
         },
         "coverage": {
             "anyOf": [
